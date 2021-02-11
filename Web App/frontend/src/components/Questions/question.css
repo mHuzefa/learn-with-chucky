@@ -1,0 +1,29 @@
+form.question-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    
+}
+div.container h1{
+    text-align: center;
+}
+form.question-form > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+form.question-form > div div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+form.question-form input, form.question-form input[type="password"],form.question-form input[type="email"]{
+    width: 30rem;
+    height: 4rem;
+    border-radius: 1rem;
+    border: 2px solid var(--text-secondary);
+    margin: 1rem;
+}

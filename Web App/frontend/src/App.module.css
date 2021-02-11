@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+
+html, *{
+    margin: 0;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    height: max-content;
+}
+:root{
+    --color-primary: #eff;
+    --color-secondary: #2d363f;
+    --color-tertiary: #333;
+    --text-secondary: #334444;
+
+    --font-yusei: 'Yusei Magic';
+    --font-noto: 'Noto Sans JP';
+    --margin-layout: 0rem 15rem;
+    --transition: all 0.3s linear;
+}
+
+
+::selection{
+    background-color: var(--text-secondary);
+    color: var(--color-primary);
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--text-secondary);
+    opacity: .9; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--text-secondary);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--text-secondary);
+  }
+body{
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    text-transform: capitalize;
+    font-family: var(--font-noto), sans-serif;
+    transition: var(--transition);
+}

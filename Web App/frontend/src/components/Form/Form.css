@@ -1,0 +1,64 @@
+.form{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form h1{
+    font-family: 'Yusei Magic';
+    font-size: 6rem;
+    
+}
+
+.form .name{
+    width: 40rem;
+    height: 4.5rem;
+    margin: 2rem auto;
+    display: block;
+    padding: 0 1rem;
+    border-radius: 1.2rem;
+    border: 2px solid var(--text-secondary);
+    font-family: var(--font-noto);
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.form .buttons{
+    margin-top: 2rem;
+
+}
+.form .buttons button {
+   width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   
+   border: none; 
+   text-align: center;
+   margin: 0 1rem;
+   background-color: var(--text-secondary);
+   color: #fff;
+   font-size: 1.4rem;
+   cursor: pointer;
+}
+.form .buttons button > * {
+    margin: auto;
+}
+.form .buttons button.speak{
+    background-color:#ddd;
+    color: var(--text-secondary);
+}
+
+.spoken-words{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
+.spoken-words p{
+    margin-left: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+}

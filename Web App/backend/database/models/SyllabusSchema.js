@@ -37,6 +37,10 @@ const SyllabusSchema = new Schema({
     type: String,
     required: true,
   },
+  grade: {
+    type: Schema.Types.ObjectId,
+    ref:"Grade"
+  },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",

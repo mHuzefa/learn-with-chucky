@@ -3,30 +3,24 @@ const Schema = mongoose.Schema;
 
 const UserScehma = new Schema(
   {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-    },
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
       required: true,
     },
-    isTeacher: {
-      type: Boolean,
-    },
-    childName: {
-      type: String,
-    },
-    gender: {
+    googleID: {
       type: String,
       required: true,
     },
-    gradeID: {
+    imageUrl: {
+      type: String,
+      required: true,
+    },
+    name: {
       type: String,
       required: true,
     },

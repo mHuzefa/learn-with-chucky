@@ -1,151 +1,121 @@
 import React, { Component } from "react";
-import "./registration.css";
-
-class UserAdd extends Component {
+import { GoogleLogin, GoogleLogout } from "react-google-login";
+class Registration extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      email: "",
-      password: "",
-      isTeacher: false,
-      childName: "",
-      gender: "",
-      gradeID: "",
-      confirmPassword: "",
+      googleInfo: {},
     };
   }
-  onSubmit = (e) => {
+  onSuccess = (res) => {
+    this.setState({
+      googleInfo: res.profileObj,
+      name: res.profileObj.name,
+      email: res.profileObj.email,
+
+      imageUrl: res.profileObj.imageUrl,
+      password: "",
+      googleID: res.profileObj.googleId,
+    });
+    console.log(res.profileObj);
+    localStorage.clear();
+    localStorage.setItem("teacherData", JSON.stringify(this.state.googleInfo));
+    localStorage.setItem("googleId", JSON.stringify(this.state.googleID));
+  };
+  onFailure = () => {
+    console.log("Error Ocurred while signing in");
+  };
+  onLogout = () => {
+    console.log("Logout SUccessfully");
+  };
+  saveToDatabase = (e) => {
     e.preventDefault();
-    const UserData = {
-      username: this.state.username,
+    let userData = {
+      name: this.state.name,
       email: this.state.email,
+      imageUrl: this.state.imageUrl,
       password: this.state.password,
-      isTeacher: this.state.isTeacher,
-      childName: this.state.childName,
-      gender: this.state.gender,
-      gradeID: this.state.gradeID,
+      googleID: this.state.googleID,
     };
     fetch("http://localhost:5000/api/users/add_user", {
       method: "POST",
-      body: JSON.stringify(UserData),
+      body: JSON.stringify(userData),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
     })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-    this.setState({
-      name: "",
-      email: "",
-      childName: "",
-      password: "",
-      isTeacher: false,
-      gradeID: "",
-      gender: "",
-    });
+      .then((res) => {
+        const data = res.json();
+        return data;
+      })
+      .then((data) => {
+        fetch(`http://localhost:5000/api/users/${this.state.googleID}`)
+          .then((res) => {
+            const data = res.json();
+            return data;
+          })
+          .then((data) => {
+            console.log(data);
+          });
+      })
+      .catch((err) => console.log(err));
   };
+
   render() {
+    const clientID =
+      "965946483323-ih6ds04jjckmd5ijt0s3ggavu2llsbnt.apps.googleusercontent.com";
+    const LOCAL = "http://localhost:3000";
+
     return (
-      <div className='container'>
-        <h1>Register</h1>
-        <form onSubmit={this.onSubmit} className='registration'>
-          <div>
-            <div>
-              <label htmlFor='username'>Username</label>
-              <input
-                type='text'
-                id='username'
-                required
-                value={this.state.username}
-                onChange={(e) => this.setState({ username: e.target.value })}
-              />
-            </div>
-            <div>
-              <label htmlFor='email'>Email</label>
-              <input
-                type='email'
-                value={this.state.email}
-                id='email'
-                onChange={(e) => this.setState({ email: e.target.value })}
-              />
-            </div>
+      <div>
+        <div className='account'>
+          <div className='account__setup'>
+            <img className='account__img' src='/' alt='Decoration' />
+            <h1 className='account__heading'>Sign in with Parent Account</h1>
+            <p className='account__paragraph'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+              excepturi dolorem ad, odit quo asperiores dolorum tempore. Quam
+              nam asperiores in ipsa excepturi architecto recusandae. Qui
+              ducimus veritatis aspernatur recusandae.
+            </p>
+            <GoogleLogin
+              clientId={clientID}
+              onSuccess={this.onSuccess}
+              onFailure={this.onFailure}
+              cookiePolicy={"single_host_origin"}
+              style={{ marginTop: "100px" }}
+              isSignedIn={true}
+              render={(prop) => {
+                return (
+                  <button className='account__button' onClick={prop.onClick}>
+                    Sign In
+                  </button>
+                );
+              }}
+            />
           </div>
-          <div>
+          <GoogleLogout
+            clientId={clientID}
+            buttonText='Logout'
+            onLogoutSuccess={this.onLogout}></GoogleLogout>
+          {this.state.googleInfo?.email && (
             <div>
-              <label htmlFor='child'>Child Name</label>
               <input
-                type='text'
-                value={this.state.childName}
-                required
-                onChange={(e) => this.setState({ childName: e.target.value })}
-              />
-            </div>
-            <div>
-              <label htmlFor='gender'>Child Gender</label>
-              <input
-                type='text'
-                value={this.state.gender}
-                id='gender'
-                onChange={(e) => this.setState({ gender: e.target.value })}
-              />
-            </div>
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor='grade'>In which grade child is</label>
-              <input
-                type='text'
-                value={this.state.gradeID}
-                id='grade'
-                onChange={(e) => this.setState({ gradeID: e.target.value })}
-              />
-            </div>
-            <div>
-              <label htmlFor='teacher'>Are you Guardian?</label>
-              <input
-                type='checkbox'
-                checked={this.state.isTeacher}
-                id='teacher'
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    this.setState({ isTeacher: true });
-                  } else {
-                    this.setState({ isTeacher: false });
-                  }
-                }}
-              />
-            </div>
-          </div>
-          <div>
-            <div>
-              <label htmlFor='password'>Password</label>
-              <input
-                type='password'
+                className='account__password'
                 value={this.state.password}
-                id='password'
                 onChange={(e) => this.setState({ password: e.target.value })}
-              />
-            </div>
-            <div>
-              <label htmlFor='cpassword'>Confirm Password</label>
-              <input
                 type='password'
-                value={this.state.confirmPassword}
-                id='password'
-                required
-                onChange={(e) =>
-                  this.setState({ confirmPassword: e.target.value })
-                }
               />
+              <button
+                className='btn account__create'
+                onClick={this.saveToDatabase}>
+                Create Account
+              </button>
             </div>
-          </div>
-
-          <input type='submit' value='Register' />
-        </form>
+          )}
+        </div>
       </div>
     );
   }
 }
-export default UserAdd;
+export default Registration;

@@ -5,10 +5,13 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import "./App.module.css";
 import Form from "./components/Form/Form";
+import GoogleAuth from "./components/GoogleAuth/GoogleAuth";
 import Option from "./components/Option/Option";
 import AddQuestion from "./components/Questions/AddQuestion";
-import Login from "./components/User/Login";
+import StudentAccount from "./components/Student/StudentAccount";
+import StudentLogin from "./components/Student/StudentLogin";
 import Registration from "./components/User/Registration";
+import YouTube from "./components/Youtube/YouTube";
 function myHook(Component) {
   return function Form(props) {
     const speechRecognitionHook = useSpeechRecognition();
@@ -34,13 +37,23 @@ class App extends Component {
           <Route path='/register' exact>
             <Registration />
           </Route>
-          <Route path='/login' exact>
-            <Login />
+
+          <Route path='/teacher/login' exact>
+            <GoogleAuth />
           </Route>
           <Route path='/subjects' exact>
             <Option />
           </Route>
           <Route path='/add_question' exact component={AddQuestion} />
+          <Route path='/student/register'>
+            <StudentAccount />
+          </Route>
+          <Route path='/learn'>
+            <YouTube />
+          </Route>
+          <Route path='/login'>
+            <StudentLogin />
+          </Route>
         </Switch>
       </Router>
     );

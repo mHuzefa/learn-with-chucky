@@ -4,6 +4,12 @@ const cors = require("cors");
 const mongodbHelper = require("./database/dbConnect/helper");
 const UserRouter = require("./routes/UserRouter");
 const QuestionRouter = require("./routes/QuestionRoute");
+const studentRouter = require("./routes/StudentRouter");
+const gradeRouter = require("./routes/GradeRouter");
+const app = express();
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 mongodbHelper
   .once("open", () => {
@@ -13,14 +19,10 @@ mongodbHelper
     console.error("Error => ", error);
   });
 
-const app = express();
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 app.use("/api/users", UserRouter);
 app.use("/api/questions", QuestionRouter);
-
+app.use("/api/students", studentRouter);
+app.use("/api/grades", gradeRouter);
 app.listen(5000, () => {
   console.log("Port Connected");
 });

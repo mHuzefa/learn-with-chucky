@@ -1,0 +1,18 @@
+.form{
+    display: flex;
+    align-items: center;
+}
+.container{
+    height: 100vh;
+}
+.form :not(input[type="submit"]){
+    width: 30rem;
+    height: 4rem;
+    margin-bottom: 2rem;
+    background-color: var(--text-secondary);
+    color: var(--color-primary);
+}
+::placeholder{
+    color: var(--color-primary);
+    opacity: 0.9;
+}

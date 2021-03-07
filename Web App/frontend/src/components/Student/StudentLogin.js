@@ -116,7 +116,6 @@ class StudentLogin extends Component {
     console.log(this.state.x, this.state.y);
     return (
       <div className='container'>
-        <
         <form className='form' action='' onSubmit={this.onSubmit}>
           <input
             type='text'

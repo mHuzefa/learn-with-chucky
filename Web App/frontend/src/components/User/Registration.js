@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "./registration.css"
+import Teacher from './teacher.svg'
 import { GoogleLogin, GoogleLogout } from "react-google-login";
 class Registration extends Component {
   constructor(props) {
@@ -68,16 +70,9 @@ class Registration extends Component {
 
     return (
       <div>
-        <div className='account'>
           <div className='account__setup'>
-            <img className='account__img' src='/' alt='Decoration' />
-            <h1 className='account__heading'>Sign in with Parent Account</h1>
-            <p className='account__paragraph'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-              excepturi dolorem ad, odit quo asperiores dolorum tempore. Quam
-              nam asperiores in ipsa excepturi architecto recusandae. Qui
-              ducimus veritatis aspernatur recusandae.
-            </p>
+            <img style={{width:"6rem"}} className='account__img' src={Teacher} alt="Teacher Svg" />
+            <h1 className='account__heading'>Register</h1>
             <GoogleLogin
               clientId={clientID}
               onSuccess={this.onSuccess}
@@ -94,10 +89,10 @@ class Registration extends Component {
               }}
             />
           </div>
-          <GoogleLogout
+          {/* <GoogleLogout
             clientId={clientID}
             buttonText='Logout'
-            onLogoutSuccess={this.onLogout}></GoogleLogout>
+            onLogoutSuccess={this.onLogout}></GoogleLogout> */}
           {this.state.googleInfo?.email && (
             <div>
               <input
@@ -114,7 +109,6 @@ class Registration extends Component {
             </div>
           )}
         </div>
-      </div>
     );
   }
 }

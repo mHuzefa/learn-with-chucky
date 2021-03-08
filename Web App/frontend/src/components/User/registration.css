@@ -1,28 +1,12 @@
-form.registration{
+.account__setup{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    position: relative;
+    max-width: 1100px;
+    height: 600px;
+    min-height: 200px;
     
-}
-div.container h1{
-    text-align: center;
-}
-form.registration > div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-form.registration > div div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 
-}
-form.registration input, form.registration input[type="password"],form.registration input[type="email"]{
-    width: 30rem;
-    height: 4rem;
-    border-radius: 1rem;
-    border: 2px solid var(--text-secondary);
-    margin: 1rem;
+
+    margin: auto;
+    background-color: red;
 }

@@ -1,3 +1,4 @@
+
 .form{
     display: flex;
     align-items: center;
@@ -5,14 +6,76 @@
 .container{
     height: 100vh;
 }
-.form :not(input[type="submit"]){
-    width: 30rem;
-    height: 4rem;
-    margin-bottom: 2rem;
-    background-color: var(--text-secondary);
-    color: var(--color-primary);
+.std__login{
+    font-family: var(--font-yusei);
+    font-size: 5rem;
+    position: relative;
+    top: 10%;
+    color: var(--color-tertiary);
 }
-::placeholder{
+.teacher__contact{
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    font-family: var(--font-noto);
+    padding: 1rem;
+    background-color: #333;
+    color: #FFF;
+    border-radius: 5px;
+}
+.std__validate{
+    position: absolute; 
+    top: 2%;
+    left: 40%;
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 5px;
+    color: #FFF;
+    background-color: rgb(223, 87, 87);
+    
+}
+.form__std--username,.form__std--password{
+    width: 40rem;
+    height: 6rem;
+    border: none;
+    margin-bottom: 2rem;
+    background-color: #2d363f;
+    padding: 2px 1rem;
+    border-radius: 1rem;
+    color: #FFF;
+    font-size: 2rem;
+    font-family: var(--font-noto);
+}
+.form__std--username::selection, .form__std--password::selection{
+    background-color: var(--color-primary);
+    color: var(--text-secondary);
+}
+
+.img-container{
+    display:flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+}
+input:-webkit-autofill.form__std--username{
+    background-color: #2d363f;
+
+}
+input:-internal-autofill{
+    background-color: #2d363f !important;
+}
+.form__std--password::placeholder, .form__std--username::placeholder{
+    color: #FFF;
+    opacity: .6;
+}
+.form__std--submit{
+    width: 12rem;
+    height: 4.5rem;
+    background-color: var(--color-secondary);
     color: var(--color-primary);
-    opacity: 0.9;
+    font-size: 1.6rem;
+    font-family: var(--font-noto);
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 3px 4px 9px 1px rgba(0,0,0,0.4);
 }

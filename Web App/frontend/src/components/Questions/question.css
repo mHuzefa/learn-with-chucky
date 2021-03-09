@@ -5,7 +5,7 @@ form.question-form{
     position: relative;
     
 }
-div.container h1{
+div.question-container h1{
     text-align: center;
 }
 form.question-form > div{
@@ -27,3 +27,7 @@ form.question-form input, form.question-form input[type="password"],form.questio
     border: 2px solid var(--text-secondary);
     margin: 1rem;
 }
+ .question-container label{
+    margin-left: 14px;
+    
+ }

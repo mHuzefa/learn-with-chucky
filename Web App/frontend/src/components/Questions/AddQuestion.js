@@ -6,7 +6,8 @@ class AddQuestion extends Component {
     super(props);
     this.state = {
       question: "",
-      answer: [],
+      answer: [1],
+
       image: "",
       learn: "",
       subject: "",
@@ -46,10 +47,15 @@ class AddQuestion extends Component {
       user: "",
     });
   };
+  addOption = () =>{
+    let count = [0]
+    this.setState({answer: count.push(9)})
+    console.log(this.state.answer)
+  }
   render() {
     return (
-      <div className='container'>
-        <h1>Qustions Form</h1>
+      <div className='question-container'>
+        <h1>Questions Form</h1>
         <form onSubmit={this.onSubmit} className='question-form'>
           <div>
             <div>
@@ -63,13 +69,17 @@ class AddQuestion extends Component {
               />
             </div>
             <div>
-              <label htmlFor='email'></label>
-              <input
-                type='email'
-                value={this.state.email}
-                id='email'
-                onChange={(e) => this.setState({ email: e.target.value })}
-              />
+              <label htmlFor='email'>Options</label>
+              {this.state.answer.map(inp=>{
+                return (
+                  <input
+                   type="text"
+                   value={this.state.email}
+                   onChange={(e) => this.setState({ email: e.target.value })}
+                   />
+                )
+              })}
+              <button onClick={this.addOption}>Add</button>
             </div>
           </div>
           <div>

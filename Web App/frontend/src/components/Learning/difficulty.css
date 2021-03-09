@@ -1,0 +1,9 @@
+div.difficulty {
+    display: flex;
+    
+}
+.difficulty-container{
+    display: block;
+    margin: 0 auto;
+    background: #000;
+}

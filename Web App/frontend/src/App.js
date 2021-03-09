@@ -12,6 +12,7 @@ import StudentAccount from "./components/Student/StudentAccount";
 import StudentLogin from "./components/Student/StudentLogin";
 import Registration from "./components/User/Registration";
 import YouTube from "./components/Youtube/YouTube";
+import Difficulty from "./components/Learning/Difficulty"
 function myHook(Component) {
   return function Form(props) {
     const speechRecognitionHook = useSpeechRecognition();
@@ -53,6 +54,12 @@ class App extends Component {
           </Route>
           <Route path='/login'>
             <StudentLogin />
+          </Route>
+          <Route path="/subjects/mathematics">
+            <Difficulty />
+          </Route>
+          <Route path="/subjects/english">
+            <Difficulty />
           </Route>
         </Switch>
       </Router>

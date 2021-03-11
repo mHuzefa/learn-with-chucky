@@ -24,20 +24,23 @@ class GoogleAuth extends Component {
       "965946483323-ih6ds04jjckmd5ijt0s3ggavu2llsbnt.apps.googleusercontent.com";
     return (
       <div>
+        <form className='form'>
         <GoogleLogin
           clientId={clientID}
           buttonText='Login'
           onSuccess={this.onSuccess}
           onFailure={this.onFailure}
           cookiePolicy={"single_host_origin"}
-          style={{ marginTop: "100px" }}
+          style={{ margin: "1rem" }}
           isSignedIn={true}
         />
+        <br />
         <GoogleLogout
           clientId={clientID}
           buttonText='Logout'
           onLogoutSuccess={this.onLogout}
         />
+        </form>
         <p>{this.state.name}</p>
       </div>
     );

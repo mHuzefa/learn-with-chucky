@@ -71,7 +71,7 @@ class Registration extends Component {
     return (
       <div>
           <div className='account__setup'>
-            <img style={{width:"6rem"}} className='account__img' src={Teacher} alt="Teacher Svg" />
+            <img  style={{width:"6rem"}} className='account__img' src={Teacher} alt="Teacher Svg" />
             <h1 className='account__heading'>Register as Teacher</h1>
             <GoogleLogin
               clientId={clientID}

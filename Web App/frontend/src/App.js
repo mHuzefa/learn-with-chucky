@@ -14,6 +14,8 @@ import Registration from "./components/User/Registration";
 import YouTube from "./components/Youtube/YouTube";
 import Difficulty from "./components/Learning/Difficulty"
 import Choice from "./components/Choice/choice"
+import TeacherDashboard from "./components/Teacher/teacherDashboard"
+import GenerateReport from "./components/Teacher/generateReport";
 function myHook(Component) {
   return function Form(props) {
     const speechRecognitionHook = useSpeechRecognition();
@@ -64,6 +66,12 @@ class App extends Component {
           </Route>
           <Route path="/choice">
             <Choice />
+          </Route>
+          <Route path="/teacher/dashboard">
+            <TeacherDashboard />
+          </Route>
+          <Route>
+            <GenerateReport />
           </Route>
         </Switch>
       </Router>

@@ -1,0 +1,65 @@
+
+.header {
+    overflow: hidden;
+    background-color:#eef;
+    height: 4rem;
+    box-shadow: 3px 4px 9px 1px rgba(0,0,0,0.4);
+    padding: 20px 10px;
+  }
+
+.body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+  .teacherIMG{
+      margin-left: 1rem;
+      margin-top: -1rem;
+  }
+
+  .header-right {
+    float: right;
+    margin-top: -4.5rem;
+  }
+
+
+  .header a {
+      display: flex;
+    margin-top: -6rem;
+    margin-left: 10rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    font: 'Yusei Magic';
+    color: black;
+
+  }
+
+
+  .button-a{
+    width: 12.75rem;
+    height: 3.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-family: var(--font-noto);
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+  }
+
+  .button-b{
+    width: 14.75rem;
+    height: 3.5rem;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    font-family: var(--font-noto);
+    border-radius: 1rem;
+    border: none;
+    cursor: pointer;
+    margin: 1rem;
+  }
+  

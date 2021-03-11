@@ -72,19 +72,24 @@ class Registration extends Component {
       <div>
           <div className='account__setup'>
             <img style={{width:"6rem"}} className='account__img' src={Teacher} alt="Teacher Svg" />
-            <h1 className='account__heading'>Register</h1>
+            <h1 className='account__heading'>Register as Teacher</h1>
             <GoogleLogin
               clientId={clientID}
               onSuccess={this.onSuccess}
               onFailure={this.onFailure}
               cookiePolicy={"single_host_origin"}
-              style={{ marginTop: "100px" }}
+              style={{ marginTop: "-00px" }}
               isSignedIn={true}
               render={(prop) => {
                 return (
-                  <button className='account__button' onClick={prop.onClick}>
-                    Sign In
+                  <form className='form'>
+                       <button className='account__button' onClick={prop.onClick}>
+                    Sign In with Google
                   </button>
+
+                  </form>
+                 
+                  
                 );
               }}
             />
@@ -95,17 +100,26 @@ class Registration extends Component {
             onLogoutSuccess={this.onLogout}></GoogleLogout> */}
           {this.state.googleInfo?.email && (
             <div>
+            <form className="form-x">
+              <p>
+              write a password and create your account <br />
+              </p>
+              <label className="pass">Password: </label>
               <input
                 className='account__password'
                 value={this.state.password}
                 onChange={(e) => this.setState({ password: e.target.value })}
                 type='password'
               />
+              <br />
+              
               <button
-                className='btn account__create'
+                className='account__button1'
                 onClick={this.saveToDatabase}>
                 Create Account
               </button>
+              <br />
+            </form>
             </div>
           )}
         </div>

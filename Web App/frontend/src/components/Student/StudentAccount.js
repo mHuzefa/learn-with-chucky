@@ -20,6 +20,7 @@ class StudentAccount extends Component {
       teacher: this.state.teacher,
       gender: this.state.gender,
       gradeID: this.state.gradeID,
+      
     };
     fetch("http://localhost:5000/api/students/create_student_account", {
       method: "POST",
@@ -61,7 +62,7 @@ class StudentAccount extends Component {
   render() {
     return (
       <div>
-        <form action='' onSubmit={this.onSubmit}>
+        <form className='form' action='' onSubmit={this.onSubmit}>
           <div>
             <label htmlFor='teacherID'>Teacher ID</label>
             <input

@@ -1,0 +1,8 @@
+
+.form{
+    display: flex;
+    align-items: center;
+}
+.container{
+    height: 100vh;
+}

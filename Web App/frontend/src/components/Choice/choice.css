@@ -1,0 +1,67 @@
+form.options{
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transform: translate(-50%,-50%);
+}
+
+form.options h1{
+    font-family: 'Yusei Magic';
+    font-size: 6rem;
+}  
+
+form.options .buttons {
+    display: flex;
+    margin-top: 3rem;
+    
+}
+
+form.options .choicee{
+    display: flex;
+    border: 2px solid var(--text-secondary);
+    margin: 1rem;
+    flex-direction: column;
+    align-items: center;
+    width: 20rem;
+    padding: 1rem;
+    padding-top: 0rem;
+    border-radius: 2rem;
+}
+form.options .choicee input{
+    position: relative;
+    left: -8rem;
+}
+form.options .choicee img{
+    max-width: 10rem;
+}
+form.options .choicee p{
+    font-family: var(--font-yusei);
+    font-size: 1.7rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+form.options .call-to-action{
+    margin-top: 3rem;
+}
+form.options .call-to-action button{
+    width: 5rem;
+   height: 5rem;
+   border-radius: 50%;
+   
+   border: none; 
+   text-align: center;
+   margin: 0 1rem;
+   background-color: var(--text-secondary);
+   color: #fff;
+   font-size: 1.4rem;
+   cursor: pointer;
+
+}
+
+form.options .call-to-action button.speak{
+    background-color:#ddd;
+    color: var(--text-secondary);
+}

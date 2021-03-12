@@ -24,19 +24,33 @@ import a20 from "./svg/stationary.svg";
 import a21 from "./svg/sun.svg";
 import a22 from "./svg/zigzag.svg";
 import a23 from "./svg/0.svg";
-class SVG extends Component {
-  shouldComponentUpdate = () => false
+
+
+class Svgs extends Component {
   render() {
     return (
-        <div className="img-container">  
-          {Object.keys(this.props.imageArray).map(key =>{
-            return <img key={key} style={{overflow:"hidden",width:"6rem", position:"absolute", transform:`translate(${Math.random() *1360}px, ${Math.random()* 720}px)` }} src={this.props.imageArray[key]} />
+      <div>
+        <div>
+          {Object.keys(this.state.imageArray).map((key, i) => {
+            return (
+              <img
+                style={{
+                  width: "6rem",
+                  position: "absolute",
+                  transform: `translate(${this.state.x * (i * 50)}px, ${
+                    this.state.y * (i * 20)
+                  }px) rotate(${this.state.rotate * 25}deg)`,
+                }}
+                src={this.state.imageArray[key]}
+              />
+            );
           })}
         </div>
-      
+      </div>
     )
   }
 }
+
 class StudentLogin extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +58,9 @@ class StudentLogin extends Component {
       username: "",
       password: "",
       userData: [null],
-      error: "0px",
+      x: 0,
+      y: 0,
+      rotate: 0,
       imageArray: {
         0: a0,
         1: a1,
@@ -89,46 +105,36 @@ class StudentLogin extends Component {
         this.setState({ userData: user });
       });
   };
-  errorTimeout = () =>{
-    setTimeout(()=>{
-      this.setState({error:"-200px"})
-    },2000)
-
+  componentDidMount() {
+    this.setState({
+      x: Math.round(Math.random() + 1),
+      y: Math.round(Math.random() + 1),
+      rotate: Math.random(),
+    });
   }
   render() {
+    console.log(this.state.x, this.state.y);
     return (
-
       <div className='container'>
-        <SVG imageArray={this.state.imageArray} />
-        <h1 className="std__login">Student Login</h1>
+
         <form className='form' action='' onSubmit={this.onSubmit}>
           <input
             type='text'
             placeholder='Username'
-            className="form__std--username"
-            
             value={this.state.username}
-            required
             onChange={(e) => this.setState({ username: e.target.value })}
           />
           <input
             type='password'
             placeholder='Password'
-            className="form__std--password"
             value={this.state.password}
-            required
             onChange={(e) => this.setState({ password: e.target.value })}
           />
 
-          <input type='submit'
-                 value='Login'
-                 className="form__std--submit"
-                 id='login' />
-          <p className="teacher__contact">If you don't have account already. Contact your teacher</p>
-
+          <input type='submit' value='Login' id='login' />
         </form>
         {this.state.userData.length === 0 ? (
-          <p style={{transform: `translateY${this.state.error}`}}  className="std__validate">Username or Password is Incorrect</p>
+          <p>Username or Password is Incorrect</p>
         ) : (
           ""
         )}

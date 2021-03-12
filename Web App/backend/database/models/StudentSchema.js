@@ -16,44 +16,50 @@ const StudentSchema = new Schema(
       type: String,
       required: true,
     },
-    gender: [{
-      type: String,
-         required: true,
-    }],
-    gradeID: [{
-      type: String,
+    gender: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    gradeID: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    absentDays: {
+      type: Array,
+      default: ["Under-7"],
       required: true,
-    }],
-    absentDays: [{
-      type: String,
-      default: "Under-7",
+    },
+
+    usedLearn: {
+      type: Array,
+      default: ["0"],
       required: true,
-    }],
-    usedLearn: [{
-      type: Number,
-      default: "0",
+    },
+    watchedVideo: {
+      type: Array,
+      default: ["0"],
       required: true,
-    }],
-    watchedVideo: [{
-      type: Number,
-      default: "0",
+    },
+    usedQuiz: {
+      type: Array,
+      default: ["0"],
       required: true,
-    }],
-    usedQuiz: [{
-      type: Number,
-      default: "0",
+    },
+
+    avgQuizMarks: {
+      type: Array,
+      default: ["0"],
       required: true,
-    }],
-    avgQuizMarks: [{
-      type: Number,
-      default: "0",
+    },
+    parentResponse: {
+      type: Array,
+      default: ["Yes"],
       required: true,
-    }],
-    parentResponse: [{
-      type: String,
-      default: ['Yes'],
-      required: true,
-    }],
+    },
   },
   { timestamps: true }
 );

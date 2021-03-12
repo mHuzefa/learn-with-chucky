@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   res.send(students);
 });
 router.get("/:studentId", async (req, res) => {
-  const student = await Student.findOne({ username: req.params.studentId });
+  const student = await Student.find({ username: req.params.studentId }, {_id: 0, gender:1, gradeID:1, usedLearn:1, watchedVideo:1, usedQuiz:1, avgQuizMarks:1, parentResponse:1, absentDays:1});
   res.send(student);
 });
 router.get("/:teacherId", async (req, res) => {
@@ -22,6 +22,7 @@ router.post("/create_student_account", async (req, res) => {
     gender: req.body.gender,
     gradeID: req.body.gradeID,
   });
+  
   await student
     .save()
     .then(() => {
@@ -29,9 +30,9 @@ router.post("/create_student_account", async (req, res) => {
         message: "Student Account Created",
       });
     })
-    .catch(() => {
+    .catch((err) => {
       res.json({
-        message: "Error Occured",
+        message:err,
       });
     });
 });

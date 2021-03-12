@@ -81,7 +81,7 @@ class StudentLogin extends Component {
         return users;
       })
       .then((users) => {
-        const user = users.fil;ter(
+        const user = users.filter(
           (user) =>
             user.username === this.state.username &&
             user.password === this.state.password

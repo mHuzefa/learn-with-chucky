@@ -21,7 +21,7 @@ class Choice extends Component {
             <h1>What do you want to do?</h1>
             <div className='buttons'>
                 <div className='quiz'>
-                <label className='choicee' htmlFor='learn'>
+                <label className='choicee' htmlFor='quiz'>
                     <input
                     value='quiz'
                     name='choicee'

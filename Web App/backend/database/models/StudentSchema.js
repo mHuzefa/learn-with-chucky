@@ -22,42 +22,42 @@ const StudentSchema = new Schema(
         required: true,
       },
     ],
-    gradeID: [
+    GradeID: [
       {
         type: String,
         required: true,
       },
     ],
-    absentDays: {
-      type: Array,
-      default: ["Under-7"],
-      required: true,
-    },
-
-    usedLearn: {
-      type: Array,
-      default: ["0"],
-      required: true,
-    },
-    watchedVideo: {
-      type: Array,
-      default: ["0"],
-      required: true,
-    },
-    usedQuiz: {
+    raisedhands: {
       type: Array,
       default: ["0"],
       required: true,
     },
 
-    avgQuizMarks: {
+    VisITedResources: {
       type: Array,
       default: ["0"],
       required: true,
     },
-    parentResponse: {
+    AnnouncementsView: {
+      type: Array,
+      default: ["0"],
+      required: true,
+    },
+    Discussion: {
+      type: Array,
+      default: ["0"],
+      required: true,
+    },
+
+    ParentAnsweringSurvey: {
       type: Array,
       default: ["Yes"],
+      required: true,
+    },
+    StudentAbsenceDays: {
+      type: Array,
+      default: ["Under-7"],
       required: true,
     },
   },

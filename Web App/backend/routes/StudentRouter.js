@@ -12,13 +12,13 @@ router.get("/:studentId", async (req, res) => {
     {
       _id: 0,
       gender: 1,
-      gradeID: 1,
-      usedLearn: 1,
-      watchedVideo: 1,
-      usedQuiz: 1,
-      avgQuizMarks: 1,
-      parentResponse: 1,
-      absentDays: 1,
+      GradeID: 1,
+      StudentAbsenceDays: 1,
+      Discussion: 1,
+      AnnouncementsView: 1,
+      ParentAnsweringSurvey: 1,
+      VisITedResources: 1,
+      raisedhands: 1,
     }
   );
   res.send(student);
@@ -33,17 +33,17 @@ router.post("/create_student_account", async (req, res) => {
     username: req.body.username,
     password: req.body.password,
     gender: req.body.gender,
-    gradeID: req.body.gradeID,
-    watchedVideo: req.body.watchedVideo,
-    usedQuiz: req.body.usedQuiz,
-    avgQuizMarks: req.body.avgQuizMarks,
-    parentResponse: req.body.parentResponse,
+    GradeID: req.body.GradeID,
+    raisedhands: req.body.raisedhands,
+    VisITedResources: req.body.VisITedResources,
+    Discussion: req.body.Discussion,
+    ParentAnsweringSurvey: req.body.ParentAnsweringSurvey,
   });
-  if (req.body.absentDays) {
-    student.absentDays = req.body.absentDays;
+  if (req.body.StudentAbsenceDays) {
+    student.StudentAbsenceDays = req.body.StudentAbsenceDays;
   }
-  if (req.body.usedLearn) {
-    student.usedLearn = req.body.usedLearn;
+  if (req.body.AnnouncementsView) {
+    student.AnnouncementsView = req.body.AnnouncementsView;
   }
 
   await student

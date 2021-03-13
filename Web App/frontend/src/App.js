@@ -16,6 +16,7 @@ import Difficulty from "./components/Learning/Difficulty"
 import Choice from "./components/Choice/choice"
 import TeacherDashboard from "./components/Teacher/teacherDashboard"
 import GenerateReport from "./components/Teacher/generateReport";
+import AddGrade from "./components/Teacher/addGrade";
 function myHook(Component) {
   return function Form(props) {
     const speechRecognitionHook = useSpeechRecognition();
@@ -70,8 +71,11 @@ class App extends Component {
           <Route path="/teacher/dashboard">
             <TeacherDashboard />
           </Route>
-          <Route>
+          <Route path="/teacher/generateReport">
             <GenerateReport />
+          </Route>
+          <Route path="/add_grade">
+            <AddGrade />
           </Route>
         </Switch>
       </Router>

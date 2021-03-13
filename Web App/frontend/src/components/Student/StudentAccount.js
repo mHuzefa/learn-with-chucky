@@ -8,7 +8,7 @@ class StudentAccount extends Component {
       password: "",
       teacher: JSON.parse(localStorage.getItem("googleId")),
       gender: "male",
-      gradeID: "",
+      GradeID: "",
       grades: {},
     };
   }
@@ -19,7 +19,7 @@ class StudentAccount extends Component {
       password: this.state.password,
       teacher: this.state.teacher,
       gender: this.state.gender,
-      gradeID: this.state.gradeID,
+      GradeID: this.state.GradeID,
       
     };
     fetch("http://localhost:5000/api/students/create_student_account", {
@@ -94,22 +94,22 @@ class StudentAccount extends Component {
             />
           </div>
           <div>
-            <label htmlFor='gradeId'>Grade ID</label>
+            <label htmlFor='GradeID'>Grade ID</label>
             <select
               name=''
-              id='gradeId'
+              id='GradeID'
               onChange={(e) => {
                 e.target.value !== "..." &&
-                  this.setState({ gradeID: e.target.value });
+                  this.setState({ GradeID: e.target.value });
               }}>
               <option>...</option>
               {Object.keys(this.state.grades).map((key) => {
                 return (
                   <option
-                    key={this.state.grades[key].gradeID}
-                    value={`${this.state.grades[key].gradeName}-${this.state.grades[key].gradeID}`}>
+                    key={this.state.grades[key].GradeID}
+                    value={`${this.state.grades[key].gradeName}-${this.state.grades[key].GradeID}`}>
                     {this.state.grades[key].gradeName} -
-                    {this.state.grades[key].gradeID}
+                    {this.state.grades[key].GradeID}
                   </option>
                 );
               })}

@@ -17,15 +17,10 @@ class generateReport extends Component{
         e.preventDefault();
     fetch(`http://localhost:5000/api/students/${this.state.username}`)
       .then((res) => {
-        const users = res.json();
-        return users;
-      })
-      .then((users) => {
-        const user = users.filter(
-          (user) =>
-            user.username === this.state.username
-        );
-        this.setState({ userData: user });
+        var users = res.json();
+        console.log(users)
+        console.log(JSON.stringify(users))
+        this.setState({ userData: users})
       });
 
         //fetch data of student from given username and then send this data to API and output the response accordingly
@@ -37,8 +32,14 @@ class generateReport extends Component{
                 "Access-Control-Allow-Origin": "*"
               },      
         })
-        .then(response => response.json()) 
-        .then(json => console.log(json));
+        .then((res) => {
+            const data = res.json();
+            return data;
+          })
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.error(err));
         
     }
     render() {

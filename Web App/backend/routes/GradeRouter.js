@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
 });
 router.post("/add_grade", async (req, res) => {
   const grade = new Grade({
-    gradeID: req.body.gradeID,
+    GradeID: req.body.GradeID,
     gradeName: req.body.gradeName,
   });
   await grade

@@ -3,9 +3,11 @@ from flask import Flask, jsonify, request, abort
 import pandas as pd
 import json
 import traceback
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 def loadModel(filename):
@@ -19,8 +21,8 @@ def formatData(xx):
                                   'Discussion', 'ParentAnsweringSurvey', 'StudentAbsenceDays'])
 
     # Encoding data
-    gender_map = {'M': 1,
-                  'F': 2}
+    gender_map = {'male': 1,
+                  'female': 2}
 
     GradeID_map = {'G-02': 2,
                    'G-08': 8,
